@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_currency_form_amount_words" model="ir.ui.view">
+        <field name="name">res.currency.form.amount.words</field>
+        <field name="model">res.currency</field>
+        <field name="inherit_id" ref="base.view_currency_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook[hasclass('o_currency_rate_list')]" position="after">
+                <notebook name="amount_words_notebook">
+                    <page string="Amount in Words" name="amount_words">
+                        <div class="text-muted mb-2">
+                            Wording used to spell document totals. Leave a field empty to use the built-in default.
+                            <button name="action_amount_words_reset" type="object" class="btn-link p-0 ms-1"
+                                    string="Reload defaults" icon="fa-refresh"
+                                    confirm="Overwrite the wording below with the built-in defaults for this currency?"/>
+                        </div>
+                        <group>
+                            <group string="English">
+                                <field name="words_en_unit_singular" placeholder="Saudi Riyal"/>
+                                <field name="words_en_unit_plural" placeholder="Saudi Riyals"/>
+                                <field name="words_en_sub_singular" placeholder="Halala"/>
+                                <field name="words_en_sub_plural" placeholder="Halalas"/>
+                            </group>
+                            <group string="Arabic - Unit">
+                                <field name="words_ar_unit_singular" placeholder="ريال سعودي" class="text-end" dir="rtl"/>
+                                <field name="words_ar_unit_dual" placeholder="ريالان سعوديان" class="text-end" dir="rtl"/>
+                                <field name="words_ar_unit_plural" placeholder="ريالات سعودية" class="text-end" dir="rtl"/>
+                                <field name="words_ar_unit_accusative" placeholder="ريالاً سعودياً" class="text-end" dir="rtl"/>
+                                <field name="words_ar_unit_feminine"/>
+                            </group>
+                            <group/>
+                            <group string="Arabic - Subunit">
+                                <field name="words_ar_sub_singular" placeholder="هللة" class="text-end" dir="rtl"/>
+                                <field name="words_ar_sub_dual" placeholder="هللتان" class="text-end" dir="rtl"/>
+                                <field name="words_ar_sub_plural" placeholder="هللات" class="text-end" dir="rtl"/>
+                                <field name="words_ar_sub_accusative" placeholder="هللة" class="text-end" dir="rtl"/>
+                                <field name="words_ar_sub_feminine"/>
+                            </group>
+                        </group>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+</odoo>

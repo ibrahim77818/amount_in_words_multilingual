@@ -1,0 +1,399 @@
+# Arabic translation of Amount in Words (amount_in_words_multilingual)
+# This file contains the translation of the following modules:
+# 	* amount_in_words_multilingual
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-04 22:57+0000\n"
+"PO-Revision-Date: 2026-11-04 22:57+0000\n"
+"Last-Translator: \n"
+"Language-Team: Arabic\n"
+"Language: ar_001\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#. module: amount_in_words_multilingual
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.res_config_settings_view_form_amount_words
+msgid ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
+"specific.\"/>"
+msgstr ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"القيم المحددة هنا خاصة "
+"بالشركة.\"/>"
+
+#. module: amount_in_words_multilingual
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.view_move_form_amount_words
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.view_order_form_amount_words
+msgid "<strong class=\"me-1\">Total (In Words):</strong>"
+msgstr "<strong class=\"me-1\">الإجمالي كتابةً:</strong>"
+
+#. module: amount_in_words_multilingual
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.amount_total_words_block
+msgid "<strong>Total (In Words):</strong>"
+msgstr "<strong>الإجمالي كتابةً:</strong>"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,help:amount_in_words_multilingual.field_res_company__amount_words_wrap
+#: model:ir.model.fields,help:amount_in_words_multilingual.field_res_config_settings__amount_words_wrap
+msgid ""
+"Adds \"... Only\" in English and \"فقط ... لا غير\" in Arabic so the amount "
+"cannot be altered after printing."
+msgstr ""
+"يضيف \"... Only\" بالإنجليزية و\"فقط ... لا غير\" بالعربية لمنع التلاعب "
+"بالمبلغ بعد الطباعة."
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields.selection,name:amount_in_words_multilingual.selection__res_company__amount_words_lang_mode__ar
+msgid "Always Arabic"
+msgstr "العربية دائماً"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields.selection,name:amount_in_words_multilingual.selection__res_company__amount_words_lang_mode__en
+msgid "Always English"
+msgstr "الإنجليزية دائماً"
+
+#. module: amount_in_words_multilingual
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.res_config_settings_view_form_amount_words
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.view_currency_form_amount_words
+msgid "Amount in Words"
+msgstr "المبلغ كتابةً"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_account_bank_statement_line__amount_total_words_lang
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_account_move__amount_total_words_lang
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_account_payment__amount_total_words_lang
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_amount_words_mixin__amount_total_words_lang
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_res_company__amount_words_lang_mode
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_res_config_settings__amount_words_lang_mode
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_sale_order__amount_total_words_lang
+msgid "Amount in Words Language"
+msgstr "لغة المبلغ كتابةً"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model,name:amount_in_words_multilingual.model_amount_words_mixin
+msgid "Amount in Words Mixin"
+msgstr "نموذج المبلغ كتابةً"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_account_bank_statement_line__amount_total_words_rtl
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_account_move__amount_total_words_rtl
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_account_payment__amount_total_words_rtl
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_amount_words_mixin__amount_total_words_rtl
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_sale_order__amount_total_words_rtl
+msgid "Amount in Words is RTL"
+msgstr "المبلغ كتابةً من اليمين لليسار"
+
+#. module: amount_in_words_multilingual
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.view_currency_form_amount_words
+msgid "Arabic - Subunit"
+msgstr "العربية - الوحدة الفرعية"
+
+#. module: amount_in_words_multilingual
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.view_currency_form_amount_words
+msgid "Arabic - Unit"
+msgstr "العربية - الوحدة"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_res_currency__words_ar_sub_accusative
+msgid "Arabic Subunit (Accusative)"
+msgstr "الوحدة الفرعية بالعربية (تمييز منصوب)"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_res_currency__words_ar_sub_dual
+msgid "Arabic Subunit (Dual)"
+msgstr "الوحدة الفرعية بالعربية (مثنى)"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_res_currency__words_ar_sub_plural
+msgid "Arabic Subunit (Plural)"
+msgstr "الوحدة الفرعية بالعربية (جمع)"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_res_currency__words_ar_sub_singular
+msgid "Arabic Subunit (Singular)"
+msgstr "الوحدة الفرعية بالعربية (مفرد)"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_res_currency__words_ar_sub_feminine
+msgid "Arabic Subunit is Feminine"
+msgstr "الوحدة الفرعية العربية مؤنثة"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_res_currency__words_ar_unit_accusative
+msgid "Arabic Unit (Accusative)"
+msgstr "الوحدة بالعربية (تمييز منصوب)"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_res_currency__words_ar_unit_dual
+msgid "Arabic Unit (Dual)"
+msgstr "الوحدة بالعربية (مثنى)"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_res_currency__words_ar_unit_plural
+msgid "Arabic Unit (Plural)"
+msgstr "الوحدة بالعربية (جمع)"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_res_currency__words_ar_unit_singular
+msgid "Arabic Unit (Singular)"
+msgstr "الوحدة بالعربية (مفرد)"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_res_currency__words_ar_unit_feminine
+msgid "Arabic Unit is Feminine"
+msgstr "الوحدة العربية مؤنثة"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model,name:amount_in_words_multilingual.model_res_company
+msgid "Companies"
+msgstr "الشركات"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model,name:amount_in_words_multilingual.model_res_config_settings
+msgid "Config Settings"
+msgstr "تهيئة الإعدادات"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model,name:amount_in_words_multilingual.model_res_currency
+msgid "Currency"
+msgstr "العملة"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields.selection,name:amount_in_words_multilingual.selection__res_company__amount_words_lang_mode__partner
+msgid "Customer's Language"
+msgstr "لغة العميل"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,help:amount_in_words_multilingual.field_account_bank_statement_line__amount_total_words
+#: model:ir.model.fields,help:amount_in_words_multilingual.field_account_move__amount_total_words
+#: model:ir.model.fields,help:amount_in_words_multilingual.field_account_payment__amount_total_words
+#: model:ir.model.fields,help:amount_in_words_multilingual.field_amount_words_mixin__amount_total_words
+#: model:ir.model.fields,help:amount_in_words_multilingual.field_sale_order__amount_total_words
+msgid "Document total spelled out in the customer's language."
+msgstr "إجمالي المستند مكتوباً بالحروف بلغة العميل."
+
+#. module: amount_in_words_multilingual
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.view_currency_form_amount_words
+msgid "English"
+msgstr "الإنجليزية"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,help:amount_in_words_multilingual.field_res_currency__words_ar_unit_feminine
+msgid ""
+"Feminine nouns (e.g. ليرة) change the number words: ثلاث ليرات instead of "
+"ثلاثة."
+msgstr ""
+"الأسماء المؤنثة (مثل ليرة) تغيّر صيغة العدد: ثلاث ليرات بدلاً من ثلاثة."
+
+#. module: amount_in_words_multilingual
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.view_currency_form_amount_words
+msgid "Halala"
+msgstr "Halala"
+
+#. module: amount_in_words_multilingual
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.view_currency_form_amount_words
+msgid "Halalas"
+msgstr "Halalas"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model,name:amount_in_words_multilingual.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: amount_in_words_multilingual
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.res_config_settings_view_form_amount_words
+msgid "Language used to spell the total of quotations, orders and invoices"
+msgstr "اللغة المستخدمة لكتابة إجمالي عروض الأسعار والطلبات والفواتير"
+
+#. module: amount_in_words_multilingual
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.view_currency_form_amount_words
+msgid ""
+"Overwrite the wording below with the built-in defaults for this currency?"
+msgstr "هل تريد استبدال الصيغ أدناه بالقيم الافتراضية المضمّنة لهذه العملة؟"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_res_company__amount_words_on_invoice_report
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_res_config_settings__amount_words_on_invoice_report
+msgid "Print on Customer Invoices"
+msgstr "الطباعة على فواتير العملاء"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_res_company__amount_words_on_sale_report
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_res_config_settings__amount_words_on_sale_report
+msgid "Print on Quotations / Orders"
+msgstr "الطباعة على عروض الأسعار / الطلبات"
+
+#. module: amount_in_words_multilingual
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.res_config_settings_view_form_amount_words
+msgid "Protects the printed amount against later additions"
+msgstr "يحمي المبلغ المطبوع من أي إضافة لاحقة"
+
+#. module: amount_in_words_multilingual
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.view_currency_form_amount_words
+msgid "Reload defaults"
+msgstr "إعادة تحميل القيم الافتراضية"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model,name:amount_in_words_multilingual.model_sale_order
+msgid "Sales Order"
+msgstr "أمر البيع"
+
+#. module: amount_in_words_multilingual
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.view_currency_form_amount_words
+msgid "Saudi Riyal"
+msgstr "Saudi Riyal"
+
+#. module: amount_in_words_multilingual
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.view_currency_form_amount_words
+msgid "Saudi Riyals"
+msgstr "Saudi Riyals"
+
+#. module: amount_in_words_multilingual
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.res_config_settings_view_form_amount_words
+msgid ""
+"Show \"Total (In Words)\" under the totals of the invoice / credit note PDF"
+msgstr "إظهار \"الإجمالي كتابةً\" أسفل إجماليات ملف PDF للفاتورة / إشعار الدائن"
+
+#. module: amount_in_words_multilingual
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.res_config_settings_view_form_amount_words
+msgid "Show \"Total (In Words)\" under the totals of the quotation / order PDF"
+msgstr "إظهار \"الإجمالي كتابةً\" أسفل إجماليات ملف PDF لعرض السعر / الطلب"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_res_currency__words_en_sub_plural
+msgid "Subunit (Plural)"
+msgstr "الوحدة الفرعية (جمع)"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_res_currency__words_en_sub_singular
+msgid "Subunit (Singular)"
+msgstr "الوحدة الفرعية (مفرد)"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_account_bank_statement_line__amount_total_words
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_account_move__amount_total_words
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_account_payment__amount_total_words
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_amount_words_mixin__amount_total_words
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_sale_order__amount_total_words
+msgid "Total (In Words)"
+msgstr "الإجمالي كتابةً"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_res_currency__words_en_unit_plural
+msgid "Unit (Plural)"
+msgstr "الوحدة (جمع)"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_res_currency__words_en_unit_singular
+msgid "Unit (Singular)"
+msgstr "الوحدة (مفرد)"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,help:amount_in_words_multilingual.field_res_currency__words_ar_unit_singular
+msgid "Used for 1, round hundreds/thousands: ريال سعودي"
+msgstr "يُستخدم للعدد 1 وللمئات/الآلاف الصحيحة: ريال سعودي"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,help:amount_in_words_multilingual.field_res_currency__words_ar_unit_accusative
+msgid "Used for 11 to 99: ريالاً سعودياً"
+msgstr "يُستخدم من 11 إلى 99: ريالاً سعودياً"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,help:amount_in_words_multilingual.field_res_currency__words_ar_unit_dual
+msgid "Used for 2: ريالان سعوديان"
+msgstr "يُستخدم للعدد 2: ريالان سعوديان"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,help:amount_in_words_multilingual.field_res_currency__words_ar_unit_plural
+msgid "Used for 3 to 10: ريالات سعودية"
+msgstr "يُستخدم من 3 إلى 10: ريالات سعودية"
+
+#. module: amount_in_words_multilingual
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.view_currency_form_amount_words
+msgid ""
+"Wording used to spell document totals. Leave a field empty to use the built-"
+"in default."
+msgstr ""
+"الصيغ المستخدمة لكتابة إجماليات المستندات بالحروف. اترك الحقل فارغاً "
+"لاستخدام القيمة الافتراضية المضمّنة."
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_res_company__amount_words_wrap
+#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_res_config_settings__amount_words_wrap
+msgid "Wrap with \"Only\" / \"فقط ... لا غير\""
+msgstr "إحاطة المبلغ بعبارة \"فقط ... لا غير\""
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,help:amount_in_words_multilingual.field_res_currency__words_en_sub_singular
+msgid "e.g. Halala"
+msgstr "مثال: Halala"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,help:amount_in_words_multilingual.field_res_currency__words_en_sub_plural
+msgid "e.g. Halalas"
+msgstr "مثال: Halalas"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,help:amount_in_words_multilingual.field_res_currency__words_en_unit_singular
+msgid "e.g. Saudi Riyal"
+msgstr "مثال: Saudi Riyal"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,help:amount_in_words_multilingual.field_res_currency__words_en_unit_plural
+msgid "e.g. Saudi Riyals"
+msgstr "مثال: Saudi Riyals"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,help:amount_in_words_multilingual.field_res_currency__words_ar_sub_plural
+msgid "e.g. هللات"
+msgstr "مثال: هللات"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,help:amount_in_words_multilingual.field_res_currency__words_ar_sub_accusative
+#: model:ir.model.fields,help:amount_in_words_multilingual.field_res_currency__words_ar_sub_singular
+msgid "e.g. هللة"
+msgstr "مثال: هللة"
+
+#. module: amount_in_words_multilingual
+#: model:ir.model.fields,help:amount_in_words_multilingual.field_res_currency__words_ar_sub_dual
+msgid "e.g. هللتان"
+msgstr "مثال: هللتان"
+
+#. module: amount_in_words_multilingual
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.view_currency_form_amount_words
+msgid "ريال سعودي"
+msgstr "ريال سعودي"
+
+#. module: amount_in_words_multilingual
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.view_currency_form_amount_words
+msgid "ريالات سعودية"
+msgstr "ريالات سعودية"
+
+#. module: amount_in_words_multilingual
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.view_currency_form_amount_words
+msgid "ريالان سعوديان"
+msgstr "ريالان سعوديان"
+
+#. module: amount_in_words_multilingual
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.view_currency_form_amount_words
+msgid "ريالاً سعودياً"
+msgstr "ريالاً سعودياً"
+
+#. module: amount_in_words_multilingual
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.view_currency_form_amount_words
+msgid "هللات"
+msgstr "هللات"
+
+#. module: amount_in_words_multilingual
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.view_currency_form_amount_words
+msgid "هللة"
+msgstr "هللة"
+
+#. module: amount_in_words_multilingual
+#: model_terms:ir.ui.view,arch_db:amount_in_words_multilingual.view_currency_form_amount_words
+msgid "هللتان"
+msgstr "هللتان"

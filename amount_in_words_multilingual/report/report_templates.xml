@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Reusable block: expects `record` (sale.order or account.move) -->
+    <template id="amount_total_words_block" name="Total (In Words) Block">
+        <!-- Plain block (no .row/.col): wkhtmltopdf's engine mis-positions
+             flex rows in RTL documents, so width and direction are explicit. -->
+        <div name="amount_total_words"
+             class="o_amount_total_words mt-2 mb-3"
+             t-att-dir="'rtl' if record.amount_total_words_rtl else 'ltr'"
+             t-attf-style="clear: both; width: 100%; box-sizing: border-box; page-break-inside: avoid; direction: #{'rtl' if record.amount_total_words_rtl else 'ltr'}; text-align: #{'right' if record.amount_total_words_rtl else 'left'};#{&quot; font-family: 'Noto Naskh Arabic', 'Noto Sans Arabic', 'Amiri', 'Tahoma', 'DejaVu Sans', sans-serif;&quot; if record.amount_total_words_rtl else ''} border-top: 1px solid #dee2e6; border-bottom: 1px solid #dee2e6; padding: 6px 8px; line-height: 1.6;">
+            <strong>Total (In Words):</strong>
+            <span t-field="record.amount_total_words"/>
+        </div>
+    </template>
+
+    <!-- Quotation / Sales Order (also used by the Pro-Forma report) -->
+    <template id="report_saleorder_document_amount_words" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[@id='total']" position="after">
+            <t t-if="doc.company_id.amount_words_on_sale_report and doc.amount_total_words">
+                <t t-set="record" t-value="doc"/>
+                <t t-call="amount_in_words_multilingual.amount_total_words_block"/>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- Customer Invoice / Credit Note / Sales Receipt -->
+    <template id="report_invoice_document_amount_words" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@id='total']" position="after">
+            <t t-if="o.company_id.amount_words_on_invoice_report and o.amount_total_words and o.is_sale_document(include_receipts=True)">
+                <t t-set="record" t-value="o"/>
+                <t t-call="amount_in_words_multilingual.amount_total_words_block"/>
+            </t>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_amount_words" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.amount.words</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='invoicing_settings']" position="after">
+                <h2>Amount in Words</h2>
+                <div class="row mt16 o_settings_container" id="amount_in_words_settings">
+                    <div class="col-12 col-lg-6 o_setting_box" id="amount_words_lang_mode_setting">
+                        <div class="o_setting_left_pane"/>
+                        <div class="o_setting_right_pane">
+                            <label for="amount_words_lang_mode"/>
+                            <span class="fa fa-lg fa-building-o" title="Values set here are company-specific."/>
+                            <div class="text-muted">
+                                Language used to spell the total of quotations, orders and invoices
+                            </div>
+                            <div class="mt8">
+                                <field name="amount_words_lang_mode" class="o_light_label" widget="radio"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box" id="amount_words_wrap_setting">
+                        <div class="o_setting_left_pane">
+                            <field name="amount_words_wrap"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="amount_words_wrap"/>
+                            <div class="text-muted">
+                                Protects the printed amount against later additions
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box" id="amount_words_sale_report_setting">
+                        <div class="o_setting_left_pane">
+                            <field name="amount_words_on_sale_report"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="amount_words_on_sale_report"/>
+                            <div class="text-muted">
+                                Show "Total (In Words)" under the totals of the quotation / order PDF
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box" id="amount_words_invoice_report_setting">
+                        <div class="o_setting_left_pane">
+                            <field name="amount_words_on_invoice_report"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="amount_words_on_invoice_report"/>
+                            <div class="text-muted">
+                                Show "Total (In Words)" under the totals of the invoice / credit note PDF
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

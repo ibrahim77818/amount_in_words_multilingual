@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_amount_words" model="ir.ui.view">
+        <field name="name">sale.order.form.amount.words</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='note_group']" position="after">
+                <div class="o_amount_total_words mt-2 text-muted" name="amount_total_words_box"
+                     attrs="{'invisible': [('amount_total_words', '=', False)]}">
+                    <strong class="me-1">Total (In Words):</strong>
+                    <field name="amount_total_words" class="d-inline" nolabel="1"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

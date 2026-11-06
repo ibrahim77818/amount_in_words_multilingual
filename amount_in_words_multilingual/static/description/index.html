@@ -1,0 +1,235 @@
+<!-- Odoo Apps description page for amount_in_words_multilingual (Odoo 16.0). Inline styles only: apps.odoo.com strips <style> and <script> blocks. -->
+<section style="max-width:1120px;margin:0 auto;padding:0 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#2b2b33;">
+
+<!-- ============================== HERO ============================== -->
+<div style="background:linear-gradient(120deg,#017E84 0%,#3d6b78 45%,#714B67 100%);border-radius:18px;padding:48px 40px 40px;color:#ffffff;margin-top:12px;">
+  <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;opacity:.85;margin-bottom:10px;">Sales &middot; Invoicing &middot; Arabic</div>
+  <h1 style="font-size:40px;line-height:1.15;font-weight:700;margin:0 0 14px;color:#ffffff;">Amount in Words &ndash; English &amp; Arabic</h1>
+  <p style="font-size:19px;line-height:1.55;max-width:760px;margin:0 0 24px;color:#ffffff;opacity:.95;">Every quotation, sales order and customer invoice shows its total spelled out in the customer&rsquo;s own language, on screen and on the PDF. Arabic follows real grammar: dual, plural and accusative forms, gender agreement and &ldquo;&#1601;&#1602;&#1591; &hellip; &#1604;&#1575; &#1594;&#1610;&#1585;&rdquo;.</p>
+  <div>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Odoo 16.0</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Community &amp; Enterprise</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">33 automated tests</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Arabic translation (ar_001)</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Technical name: amount_in_words_multilingual</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">LGPL-3</span>
+  </div>
+</div>
+
+<!-- ============================== KEY NUMBERS ============================== -->
+<div style="display:flex;flex-wrap:wrap;margin:28px -8px 8px;">
+  <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">2 engines</div><div style="font-size:15px;color:#555;">Native English and Arabic; other languages use Odoo&rsquo;s own converter</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">26 currencies</div><div style="font-size:15px;color:#555;">Wording pre-filled: SAR, AED, KWD, QAR, OMR, BHD, EGP, USD, EUR&hellip;</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">4 noun forms</div><div style="font-size:15px;color:#555;">Singular, dual, plural and accusative, plus masculine / feminine</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">0 clicks</div><div style="font-size:15px;color:#555;">Computed live from lines, discounts, taxes and cash rounding</div></div>
+</div>
+
+<!-- ============================== WHY ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Why this module</h2>
+<p style="font-size:16px;line-height:1.6;color:#555;margin:0 0 18px;">In Saudi Arabia and the wider Gulf, the total in words is expected on commercial documents, and Arabic customers expect it in correct Arabic, not a word-for-word translation.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -10px;">
+  <div style="flex:1 1 440px;margin:10px;border:1px solid #f1d6d6;background:#fff8f8;border-radius:14px;padding:24px 26px;">
+    <h3 style="font-size:19px;font-weight:700;color:#b33939;margin:0 0 12px;">In standard Odoo 16</h3>
+    <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
+      <li>The standard quotation, order and invoice forms and PDFs have <b>no total in words</b>.</li>
+      <li>The currency method <code>amount_to_text</code> follows the <b>logged-in user&rsquo;s language</b>, not the customer&rsquo;s.</li>
+      <li>It appends one fixed unit label, so Arabic gets <b>no dual, plural or accusative</b> forms (&#1585;&#1610;&#1575;&#1604;&#1575;&#1606; / &#1585;&#1610;&#1575;&#1604;&#1575;&#1578; / &#1585;&#1610;&#1575;&#1604;&#1575;&#1611;).</li>
+      <li>Numbers do not agree with <b>feminine subunits</b> such as &#1607;&#1604;&#1604;&#1577; or &#1576;&#1610;&#1587;&#1577;.</li>
+      <li>Adding it yourself means custom <b>QWeb and RTL styling</b> on two report templates.</li>
+      <li>Hand-written text gets <b>out of date</b> as soon as a price, discount or tax changes.</li>
+    </ul>
+  </div>
+  <div style="flex:1 1 440px;margin:10px;border:1px solid #cfe7e7;background:#f4fbfb;border-radius:14px;padding:24px 26px;">
+    <h3 style="font-size:19px;font-weight:700;color:#017E84;margin:0 0 12px;">With this module</h3>
+    <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
+      <li><b>Total (In Words)</b> under the totals of every sales order and customer invoice, on screen and on the PDF.</li>
+      <li>Language taken from the <b>customer&rsquo;s profile</b>, or forced to English or Arabic per company.</li>
+      <li>Every currency has <b>singular, dual, plural and accusative</b> Arabic wording, editable on the currency.</li>
+      <li>Full <b>gender agreement</b>: &#1579;&#1604;&#1575;&#1579;&#1577; &#1585;&#1610;&#1575;&#1604;&#1575;&#1578; but &#1579;&#1604;&#1575;&#1579; &#1607;&#1604;&#1604;&#1575;&#1578;, &#1573;&#1581;&#1583;&#1609; &#1593;&#1588;&#1585;&#1577; &#1607;&#1604;&#1604;&#1577;.</li>
+      <li>Printed on the standard <b>Quotation / Order</b> and <b>Invoices</b> reports, right-aligned for Arabic.</li>
+      <li>Recomputed <b>live</b> from quantities, prices, discounts, taxes and cash rounding.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================== HOW IT WORKS ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">How it works</h2>
+<p style="font-size:16px;line-height:1.6;color:#555;margin:0 0 18px;">Install it, set your customers&rsquo; language and print. There is nothing else to configure.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -8px;">
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">1</div><div style="font-weight:700;margin-bottom:4px;">Install</div><div style="font-size:14px;color:#555;">Currency wording is filled in automatically for 26 currencies. Existing orders and invoices show their words straight away.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">2</div><div style="font-weight:700;margin-bottom:4px;">Set the language</div><div style="font-size:14px;color:#555;">Set <b>Language</b> on the customer (English or Arabic), or choose <b>Always English / Always Arabic</b> in Settings.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">3</div><div style="font-weight:700;margin-bottom:4px;">Sell and invoice</div><div style="font-size:14px;color:#555;">The words appear under the totals and change as you edit lines, discounts, taxes or rounding.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #cfe7e7;background:#f4fbfb;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#017E84;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">4</div><div style="font-weight:700;margin-bottom:4px;">Print</div><div style="font-size:14px;color:#555;">The quotation, order and invoice PDFs carry the same text, aligned left for English and right for Arabic.</div></div>
+</div>
+
+<!-- ============================== FEATURES ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:44px 0 6px;color:#2b2b33;">Features</h2>
+<p style="font-size:16px;line-height:1.6;color:#555;margin:0;">Screenshots come from an Odoo 16 Community database with demo data created for this page: the company <b>Al Noor Trading Co.</b> (Saudi riyal) sells office furniture to an English-speaking customer in Dammam, an Arabic-speaking customer in Riyadh, a Kuwaiti customer billed in dinars and a German customer billed in euros.</p>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Where to find it</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">No new menus: it lives where you already work</h3>
+  <ul style="font-size:15px;line-height:1.8;margin:0;padding-left:20px;color:#3a3a42;">
+    <li><b>Sales &rsaquo; Orders &rsaquo; Quotations / Orders</b>: <b>Total (In Words)</b> under the totals of each order.</li>
+    <li><b>Invoicing &rsaquo; Customers &rsaquo; Invoices / Credit Notes</b>: the same line under the invoice totals.</li>
+    <li><b>Invoicing &rsaquo; Configuration &rsaquo; Accounting &rsaquo; Currencies</b>: a new <b>Amount in Words</b> tab with the wording per currency.</li>
+    <li><b>Invoicing &rsaquo; Configuration &rsaquo; Settings &rsaquo; Amount in Words</b>: language mode, &ldquo;Only&rdquo; wrapping and printing switches (the <b>Accounting</b> app on Enterprise).</li>
+  </ul>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 1</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Total in words on every sales order</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;"><b>Gulf Logistics Ltd</b> has <b>Language</b> set to English, so order <b>S00001</b> reads <i>&ldquo;Twenty-Six Thousand Two Hundred and Thirty-Seven Saudi Riyals and Twenty-Five Halalas Only&rdquo;</i>. Line discounts and the 15% VAT are already included: the words always match the <b>Total</b>.</p>
+  <img src="aiw_01_so_english.png" alt="Sales order for an English customer with Total (In Words) under the totals" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 2</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Arabic for Arabic customers, whatever language you work in</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The language comes from the <b>customer</b>, not the user. The same English-speaking salesperson opens order <b>S00002</b> for <b>&#1605;&#1572;&#1587;&#1587;&#1577; &#1575;&#1604;&#1606;&#1582;&#1576;&#1577; &#1575;&#1604;&#1578;&#1580;&#1575;&#1585;&#1610;&#1577;</b> and sees <i>&ldquo;&#1601;&#1602;&#1591; &#1582;&#1605;&#1587;&#1608;&#1606; &#1571;&#1604;&#1601;&#1575;&#1611; &#1608;&#1579;&#1605;&#1575;&#1606;&#1605;&#1575;&#1574;&#1577; &#1608;&#1587;&#1578;&#1577; &#1608;&#1587;&#1576;&#1593;&#1608;&#1606; &#1585;&#1610;&#1575;&#1604;&#1575;&#1611; &#1587;&#1593;&#1608;&#1583;&#1610;&#1575;&#1611; &#1604;&#1575; &#1594;&#1610;&#1585;&rdquo;</i>. The order also has a <b>Special Discount</b> line of &minus;1,000, which is reflected in the words.</p>
+  <img src="aiw_02_so_arabic_customer.png" alt="Sales order for an Arabic customer showing the total in Arabic words" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);margin-bottom:22px;"/>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">For users working in Arabic, the label is translated (<b>&#1575;&#1604;&#1573;&#1580;&#1605;&#1575;&#1604;&#1610; &#1603;&#1578;&#1575;&#1576;&#1577;&#1611;</b>) and the interface is right-to-left.</p>
+  <img src="aiw_12_arabic_interface.png" alt="The same order in the Arabic right-to-left interface" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 3</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Updates live while you edit</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The field depends on quantities, unit prices, <b>Disc.%</b>, taxes, subtotals, total-discount lines, the currency and the customer&rsquo;s language. Here the discount on quotation <b>S00004</b> is changed to 20% and, before saving, the words already read <i>&ldquo;One Thousand Six Hundred and Fifteen Euros and Seventy Cents Only&rdquo;</i>.</p>
+  <img src="aiw_03_live_update.png" alt="Unsaved quotation where changing the discount immediately updates the total in words" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 4</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Customer invoices and credit notes, cash rounding included</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Invoice <b>INV/2026/00001</b>, created from order S00002, carries the same Arabic text. Invoices read the grand total shown by the totals widget, so the words follow the form <b>before saving</b> as well.</p>
+  <img src="aiw_04_invoice_arabic.png" alt="Posted customer invoice with the total in Arabic words" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);margin-bottom:22px;"/>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">With a <b>Cash Rounding</b> method, the rounded total is spelled out: 291.99 + 43.80 VAT = 335.79, rounded to <b>335.80</b>, giving &ldquo;&#1601;&#1602;&#1591; &#1579;&#1604;&#1575;&#1579;&#1605;&#1575;&#1574;&#1577; &#1608;&#1582;&#1605;&#1587;&#1577; &#1608;&#1579;&#1604;&#1575;&#1579;&#1608;&#1606; &#1585;&#1610;&#1575;&#1604;&#1575;&#1611; &#1587;&#1593;&#1608;&#1583;&#1610;&#1575;&#1611; &#1608;&#1579;&#1605;&#1575;&#1606;&#1608;&#1606; &#1607;&#1604;&#1604;&#1577; &#1604;&#1575; &#1594;&#1610;&#1585;&rdquo;. Both the <b>Add a rounding line</b> and <b>Modify tax amount</b> strategies are supported.</p>
+  <img src="aiw_05_invoice_cash_rounding.png" alt="Draft invoice with a 0.05 cash rounding line and the rounded total in words" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 5</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Any currency, including 3-decimal ones</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The document&rsquo;s own currency is used, with the right number of decimals. Quotation <b>S00003</b> is in Kuwaiti dinars: 697.150 becomes &ldquo;&#1601;&#1602;&#1591; &#1587;&#1578;&#1605;&#1575;&#1574;&#1577; &#1608;&#1587;&#1576;&#1593;&#1577; &#1608;&#1578;&#1587;&#1593;&#1608;&#1606; &#1583;&#1610;&#1606;&#1575;&#1585;&#1575;&#1611; &#1603;&#1608;&#1610;&#1578;&#1610;&#1575;&#1611; &#1608;&#1605;&#1575;&#1574;&#1577; &#1608;&#1582;&#1605;&#1587;&#1608;&#1606; &#1601;&#1604;&#1587;&#1575;&#1611; &#1604;&#1575; &#1594;&#1610;&#1585;&rdquo;.</p>
+  <img src="aiw_06_so_kwd.png" alt="Quotation in Kuwaiti dinars with three decimals spelled out in Arabic" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);margin-bottom:22px;"/>
+  <table style="width:100%;border-collapse:collapse;font-size:15px;">
+    <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;">Amount</th><th style="text-align:left;padding:10px 14px;">Customer language</th><th style="text-align:right;padding:10px 14px;">Total (In Words)</th></tr></thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">USD&nbsp;3.50</td><td style="padding:10px 14px;">Arabic</td><td style="padding:10px 14px;text-align:right;" dir="rtl">&#1601;&#1602;&#1591; &#1579;&#1604;&#1575;&#1579;&#1577; &#1583;&#1608;&#1604;&#1575;&#1585;&#1575;&#1578; &#1571;&#1605;&#1585;&#1610;&#1603;&#1610;&#1577; &#1608;&#1582;&#1605;&#1587;&#1608;&#1606; &#1587;&#1606;&#1578;&#1575;&#1611; &#1604;&#1575; &#1594;&#1610;&#1585;</td></tr>
+      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">AED&nbsp;12.00</td><td style="padding:10px 14px;">Arabic</td><td style="padding:10px 14px;text-align:right;" dir="rtl">&#1601;&#1602;&#1591; &#1575;&#1579;&#1606;&#1575; &#1593;&#1588;&#1585; &#1583;&#1585;&#1607;&#1605;&#1575;&#1611; &#1573;&#1605;&#1575;&#1585;&#1575;&#1578;&#1610;&#1575;&#1611; &#1604;&#1575; &#1594;&#1610;&#1585;</td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">EGP&nbsp;7.03</td><td style="padding:10px 14px;">Arabic</td><td style="padding:10px 14px;text-align:right;" dir="rtl">&#1601;&#1602;&#1591; &#1587;&#1576;&#1593;&#1577; &#1580;&#1606;&#1610;&#1607;&#1575;&#1578; &#1605;&#1589;&#1585;&#1610;&#1577; &#1608;&#1579;&#1604;&#1575;&#1579;&#1577; &#1602;&#1585;&#1608;&#1588; &#1604;&#1575; &#1594;&#1610;&#1585;</td></tr>
+      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">EUR&nbsp;21.01</td><td style="padding:10px 14px;">English</td><td style="padding:10px 14px;text-align:right;">Twenty-One Euros and One Cent Only</td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">KWD&nbsp;1.500</td><td style="padding:10px 14px;">English</td><td style="padding:10px 14px;text-align:right;">One Kuwaiti Dinar and Five Hundred Fils Only</td></tr>
+      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">JPY&nbsp;1,500 (no decimals)</td><td style="padding:10px 14px;">English</td><td style="padding:10px 14px;text-align:right;">One Thousand Five Hundred Japanese Yen Only</td></tr>
+    </tbody>
+  </table>
+  <div style="font-size:13px;color:#777;margin:6px 0 0;">Every row is an assertion in the module&rsquo;s automated tests.</div>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 6</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Printed on the standard PDF reports</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">A <b>Total (In Words)</b> band is added under the totals of <b>Quotation / Order</b> (also used by the PRO-FORMA invoice) and <b>Invoices</b>. It keeps the report margins, never splits across pages and switches direction with the language: left-aligned for English&hellip;</p>
+  <img src="aiw_07_report_so_english.png" alt="English quotation report with Total (In Words) under the totals" style="width:100%;max-width:1000px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);margin-bottom:22px;"/>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">&hellip;and right-to-left for Arabic, with the label translated as <b>&#1575;&#1604;&#1573;&#1580;&#1605;&#1575;&#1604;&#1610; &#1603;&#1578;&#1575;&#1576;&#1577;&#1611;</b>.</p>
+  <div style="display:flex;flex-wrap:wrap;margin:0 -8px;">
+    <div style="flex:1 1 440px;margin:8px;"><img src="aiw_08_report_so_arabic.png" alt="Arabic sales order report with the total in Arabic words" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/><div style="font-size:13px;color:#777;margin:6px 0 0;">Sales order S00002</div></div>
+    <div style="flex:1 1 440px;margin:8px;"><img src="aiw_09_report_invoice_arabic.png" alt="Arabic customer invoice report with the total in Arabic words" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/><div style="font-size:13px;color:#777;margin:6px 0 0;">Invoice INV/2026/00001</div></div>
+  </div>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 7</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Wording you control, per currency</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The <b>Amount in Words</b> tab on each currency holds the English singular and plural, and the Arabic <b>Singular</b>, <b>Dual</b>, <b>Plural</b> and <b>Accusative</b> forms for the unit and the subunit, with an <b>is Feminine</b> switch for each. Empty fields fall back to the built-in vocabulary, and <b>Reload defaults</b> restores it. Currencies created later with a known code are filled in automatically.</p>
+  <img src="aiw_10_currency_wording.png" alt="Saudi riyal currency form with the Amount in Words tab" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 8</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Company settings</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Under <b>Invoicing &rsaquo; Configuration &rsaquo; Settings &rsaquo; Amount in Words</b>: <b>Amount in Words Language</b> (<b>Customer&rsquo;s Language</b>, <b>Always English</b>, <b>Always Arabic</b>), <b>Wrap with &ldquo;Only&rdquo; / &ldquo;&#1601;&#1602;&#1591; &hellip; &#1604;&#1575; &#1594;&#1610;&#1585;&rdquo;</b>, and separate switches to print on quotations / orders and on customer invoices. All values are per company.</p>
+  <img src="aiw_11_settings.png" alt="Amount in Words block in the Invoicing settings" style="width:100%;max-width:1000px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<!-- ============================== ARABIC GRAMMAR ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Arabic, done properly</h2>
+<p style="font-size:16px;line-height:1.6;color:#555;margin:0 0 18px;">The counted noun (&#1575;&#1604;&#1578;&#1605;&#1610;&#1610;&#1586;) changes with the number. The module picks the form from the last two digits, exactly as a person would write it.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -10px;">
+  <div style="flex:1 1 440px;margin:10px;border:1px solid #e8e8ee;border-radius:14px;padding:22px 24px;font-size:15px;line-height:1.6;">
+    <div style="font-weight:700;margin-bottom:12px;">Saudi riyal (masculine)</div>
+    <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#dbeafe;color:#1d4ed8;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">1 &middot; singular</span> <span dir="rtl">&#1585;&#1610;&#1575;&#1604; &#1587;&#1593;&#1608;&#1583;&#1610; &#1608;&#1575;&#1581;&#1583;</span></div>
+    <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#d1fae5;color:#047857;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">2 &middot; dual</span> <span dir="rtl">&#1585;&#1610;&#1575;&#1604;&#1575;&#1606; &#1587;&#1593;&#1608;&#1583;&#1610;&#1575;&#1606;</span></div>
+    <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#fef3c7;color:#b45309;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">3&ndash;10 &middot; plural</span> <span dir="rtl">&#1582;&#1605;&#1587;&#1577; &#1585;&#1610;&#1575;&#1604;&#1575;&#1578; &#1587;&#1593;&#1608;&#1583;&#1610;&#1577;</span></div>
+    <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#fee2e2;color:#b91c1c;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">11&ndash;99 &middot; accusative</span> <span dir="rtl">&#1582;&#1605;&#1587;&#1608;&#1606; &#1585;&#1610;&#1575;&#1604;&#1575;&#1611; &#1587;&#1593;&#1608;&#1583;&#1610;&#1575;&#1611;</span></div>
+    <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#dbeafe;color:#1d4ed8;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">100s / 1000s</span> <span dir="rtl">&#1605;&#1575;&#1574;&#1578;&#1575; &#1585;&#1610;&#1575;&#1604; &#1587;&#1593;&#1608;&#1583;&#1610; &middot; &#1571;&#1604;&#1601;&#1575; &#1585;&#1610;&#1575;&#1604; &#1587;&#1593;&#1608;&#1583;&#1610;</span></div>
+  </div>
+  <div style="flex:1 1 440px;margin:10px;border:1px solid #e8e8ee;border-radius:14px;padding:22px 24px;font-size:15px;line-height:1.6;">
+    <div style="font-weight:700;margin-bottom:12px;">Halala (feminine): the numbers change too</div>
+    <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#dbeafe;color:#1d4ed8;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">0.01</span> <span dir="rtl">&#1607;&#1604;&#1604;&#1577; &#1608;&#1575;&#1581;&#1583;&#1577;</span></div>
+    <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#d1fae5;color:#047857;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">0.03</span> <span dir="rtl">&#1579;&#1604;&#1575;&#1579; &#1607;&#1604;&#1604;&#1575;&#1578;</span></div>
+    <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#fef3c7;color:#b45309;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">0.11</span> <span dir="rtl">&#1573;&#1581;&#1583;&#1609; &#1593;&#1588;&#1585;&#1577; &#1607;&#1604;&#1604;&#1577;</span></div>
+    <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#fee2e2;color:#b91c1c;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">0.21</span> <span dir="rtl">&#1573;&#1581;&#1583;&#1609; &#1608;&#1593;&#1588;&#1585;&#1608;&#1606; &#1607;&#1604;&#1604;&#1577;</span></div>
+    <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#dbeafe;color:#1d4ed8;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">TRY 3 (lira)</span> <span dir="rtl">&#1579;&#1604;&#1575;&#1579; &#1604;&#1610;&#1585;&#1575;&#1578; &#1578;&#1585;&#1603;&#1610;&#1577;</span></div>
+  </div>
+</div>
+<div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>Worked example:</b> SAR&nbsp;1,234,567.89 &rarr; <span dir="rtl">&#1601;&#1602;&#1591; &#1605;&#1604;&#1610;&#1608;&#1606; &#1608;&#1605;&#1575;&#1574;&#1578;&#1575;&#1606; &#1608;&#1571;&#1585;&#1576;&#1593;&#1577; &#1608;&#1579;&#1604;&#1575;&#1579;&#1608;&#1606; &#1571;&#1604;&#1601;&#1575;&#1611; &#1608;&#1582;&#1605;&#1587;&#1605;&#1575;&#1574;&#1577; &#1608;&#1587;&#1576;&#1593;&#1577; &#1608;&#1587;&#1578;&#1608;&#1606; &#1585;&#1610;&#1575;&#1604;&#1575;&#1611; &#1587;&#1593;&#1608;&#1583;&#1610;&#1575;&#1611; &#1608;&#1578;&#1587;&#1593; &#1608;&#1579;&#1605;&#1575;&#1606;&#1608;&#1606; &#1607;&#1604;&#1604;&#1577; &#1604;&#1575; &#1594;&#1610;&#1585;</span>. Scale words follow the same rules (&#1571;&#1604;&#1601; / &#1571;&#1604;&#1601;&#1575;&#1606; / &#1579;&#1604;&#1575;&#1579;&#1577; &#1570;&#1604;&#1575;&#1601; / &#1571;&#1581;&#1583; &#1593;&#1588;&#1585; &#1571;&#1604;&#1601;&#1575;&#1611;), up to quadrillions.</div>
+
+<!-- ============================== CORNER CASES ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Built for real-world corner cases</h2>
+<p style="font-size:16px;line-height:1.6;color:#555;margin:0 0 18px;">Each of these is covered by the code and, where it applies, by a test.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -8px;font-size:15px;line-height:1.55;">
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Existing documents</b><br/><span style="color:#555;">The field is computed, not stored: orders and invoices created before installation show their words immediately, with no migration.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Credit notes</b><br/><span style="color:#555;">The amount is spelled as a positive value (&ldquo;Twenty-Three US Dollars Only&rdquo;), as it appears on the printed credit note.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Journal entries and vendor bills</b><br/><span style="color:#555;">Miscellaneous entries get no words, and the invoice PDF block is limited to customer documents (invoices, credit notes, receipts).</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Rounding without float noise</b><br/><span style="color:#555;">Amounts are rounded half-up with decimal arithmetic: 2.675 gives 68 subunits, not 67, and 99.999 becomes 100.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>0- and 3-decimal currencies</b><br/><span style="color:#555;">Yen-style currencies drop the subunit; dinars and rials with 3 decimals count fils and baisa in thousandths.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Currencies without wording</b><br/><span style="color:#555;">Falls back to the currency&rsquo;s <b>Currency Unit</b> and <b>Currency Subunit</b> labels instead of failing.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Other customer languages</b><br/><span style="color:#555;">French, Spanish, Urdu and others use Odoo&rsquo;s standard <code>amount_to_text</code> in that language, with English as a safety net.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Customer without a language</b><br/><span style="color:#555;">The current user&rsquo;s language is used, so the field is never empty.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Multi-company</b><br/><span style="color:#555;">Language mode, wrapping and printing switches are read from the document&rsquo;s own company.</span></div>
+</div>
+
+<!-- ============================== SECURITY ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Security</h2>
+<p style="font-size:16px;line-height:1.6;color:#555;margin:0 0 18px;">No new groups or record rules: the module follows Odoo&rsquo;s existing access rights.</p>
+<table style="width:100%;border-collapse:collapse;font-size:15px;">
+  <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;">Who</th><th style="text-align:left;padding:10px 14px;">Can</th></tr></thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Anyone who can read an order or invoice</td><td style="padding:10px 14px;">See and print its <b>Total (In Words)</b> (read-only, computed)</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Accounting / Administrator</td><td style="padding:10px 14px;">Edit the <b>Amount in Words</b> wording on currencies (standard currency write access)</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Administration / Settings</td><td style="padding:10px 14px;">Change the company&rsquo;s <b>Amount in Words</b> settings</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Multi-company</td><td style="padding:10px 14px;">Settings are stored per company; currencies are shared, as in standard Odoo</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================== TECHNICAL DETAILS ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Technical details</h2>
+<table style="width:100%;border-collapse:collapse;font-size:15px;margin-top:12px;table-layout:fixed;">
+  <tbody>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:30%;color:#777;vertical-align:top;">Odoo version</td><td style="padding:10px 14px;overflow-wrap:anywhere;">16.0, Community and Enterprise (module version 16.0.1.0.0)</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:30%;color:#777;vertical-align:top;">Depends on</td><td style="padding:10px 14px;overflow-wrap:anywhere;"><code>sale</code>, <code>account</code></td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:30%;color:#777;vertical-align:top;">Python dependency</td><td style="padding:10px 14px;overflow-wrap:anywhere;">None. The English and Arabic engine is pure Python inside the module; other languages use <code>num2words</code>, which Odoo already requires.</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:30%;color:#777;vertical-align:top;">Menus</td><td style="padding:10px 14px;overflow-wrap:anywhere;">No new menus; a new tab on <b>Currencies</b> and a block on the order and invoice forms</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:30%;color:#777;vertical-align:top;">Settings</td><td style="padding:10px 14px;overflow-wrap:anywhere;">Invoicing &rsaquo; Configuration &rsaquo; Settings &rsaquo; Amount in Words</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:30%;color:#777;vertical-align:top;">Reports</td><td style="padding:10px 14px;overflow-wrap:anywhere;">Inherits <code>sale.report_saleorder_document</code> and <code>account.report_invoice_document</code> (after <code>div#total</code>)</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:30%;color:#777;vertical-align:top;">Models</td><td style="padding:10px 14px;overflow-wrap:anywhere;">New abstract <code>amount.words.mixin</code>; extends <code>sale.order</code>, <code>account.move</code>, <code>res.currency</code>, <code>res.company</code>, <code>res.config.settings</code></td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:30%;color:#777;vertical-align:top;">Public method</td><td style="padding:10px 14px;overflow-wrap:anywhere;"><code>res.currency.amount_to_words_multilingual(amount, lang=None, wrap=True)</code>, usable from your own reports</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:30%;color:#777;vertical-align:top;">Translations</td><td style="padding:10px 14px;overflow-wrap:anywhere;">Arabic (<code>ar_001</code>), plus a <code>.pot</code> template</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:30%;color:#777;vertical-align:top;">Automated tests</td><td style="padding:10px 14px;overflow-wrap:anywhere;">33 <code>TransactionCase</code> tests: 14 on the engine (English and Arabic grammar, rounding, 9 currencies, overrides, fallbacks) and 19 on documents (customer language, line and total discounts, tax-included prices, both cash-rounding strategies, credit notes, live form updates, rendered reports and the Arabic label)</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:30%;color:#777;vertical-align:top;">License</td><td style="padding:10px 14px;overflow-wrap:anywhere;">LGPL-3</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================== CONTACT ============================== -->
+<div style="margin:52px 0 40px;background:linear-gradient(120deg,#714B67 0%,#017E84 100%);border-radius:18px;padding:36px 40px;color:#fff;">
+  <h2 style="font-size:26px;font-weight:700;margin:0 0 8px;color:#fff;">Support &amp; customization</h2>
+  <p style="font-size:16px;line-height:1.6;margin:0 0 20px;color:#fff;opacity:.95;">Questions, a demo, or an adaptation to your own process? Get in touch.</p>
+  <a href="mailto:ibrahim.yahiah@gmail.com" style="display:inline-block;background:#fff;color:#714B67;font-weight:700;text-decoration:none;border-radius:8px;padding:12px 22px;margin:0 12px 10px 0;">&#9993;&nbsp; ibrahim.yahiah@gmail.com</a>
+  <a href="https://www.linkedin.com/in/ibrahim-yahia" target="_blank" rel="noopener" style="display:inline-block;border:2px solid #fff;color:#fff;font-weight:700;text-decoration:none;border-radius:8px;padding:10px 22px;margin:0 0 10px 0;">LinkedIn: Ibrahim Yahia</a>
+  <p style="font-size:13px;margin:14px 0 0;opacity:.8;color:#fff;">Author: Ibrahim Yahia &middot; License: LGPL-3</p>
+</div>
+
+</section>
