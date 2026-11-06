@@ -133,7 +133,8 @@ class TestAmountWordsDocuments(AccountTestInvoicingCommon):
         self.assertEqual(so.amount_total_words, 'فقط ريال سعودي واحد وثمانون هللة لا غير')
 
     def test_so_form_onchange_updates_words_live(self):
-        self.env.user.groups_id += self.env.ref('product.group_discount_per_so_line')
+        self.env.user.groups_id += self.env.ref('product.group_discount_per_so_line') \
+            + self.env.ref('product.group_product_pricelist')
         with Form(self.env['sale.order']) as so_form:
             so_form.partner_id = self.partner_ar
             so_form.pricelist_id = self.pricelist_sar
@@ -280,3 +281,26 @@ class TestAmountWordsDocuments(AccountTestInvoicingCommon):
         html = self._render('sale.action_report_saleorder', so_ar)
         self.assertIn('الإجمالي كتابةً:', html)
         self.assertNotIn('Total (In Words):', html)
+
+    # ------------------------------------------------------------------
+    # Odoo 17: standard "Total amount of invoice in letters" setting
+    # ------------------------------------------------------------------
+    def test_core_v17_field_uses_multilingual_engine(self):
+        inv = self._create_invoice(self.partner_ar, [{'price': 1000.0}])
+        self.assertEqual(inv._fields['amount_total_words'].string, 'Total (In Words)')
+        self.assertEqual(inv.amount_total_words, 'فقط ألف ومائة وخمسون ريالاً سعودياً لا غير')
+
+    def test_core_v17_letters_setting_not_printed_twice(self):
+        inv = self._create_invoice(self.partner_en, [{'price': 1000.0}])
+        inv.action_post()
+        words = 'One Thousand One Hundred and Fifty Saudi Riyals Only'
+        self.company.display_invoice_amount_total_words = True
+        # both enabled: our block only
+        html = self._render('account.account_invoices', inv)
+        self.assertEqual(html.count(words), 1)
+        self.assertNotIn('Total amount in words', html)
+        # ours disabled: Odoo's own line prints, with our wording
+        self.company.amount_words_on_invoice_report = False
+        html = self._render('account.account_invoices', inv)
+        self.assertEqual(html.count(words), 1)
+        self.assertIn('Total amount in words', html)

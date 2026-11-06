@@ -19,4 +19,4 @@ class SaleOrder(models.Model):
         'company_id.amount_words_lang_mode', 'company_id.amount_words_wrap',
     )
     def _compute_amount_total_words(self):
-        return super()._compute_amount_total_words()
+        self._amount_words_compute()

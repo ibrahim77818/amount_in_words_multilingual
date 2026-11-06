@@ -8,6 +8,11 @@ class AmountWordsMixin(models.AbstractModel):
     Inheriting models implement :meth:`_amount_words_get_amount` and declare
     the full ``@api.depends`` list on their own ``_compute_amount_total_words``
     override, so the text refreshes whenever any pricing element changes.
+
+    The overrides call :meth:`_amount_words_compute` directly instead of
+    ``super()``: since Odoo 17, ``account.move`` has its own
+    ``amount_total_words`` / ``_compute_amount_total_words`` (English-style
+    ``amount_to_text``), which sits before this mixin in the MRO.
     """
     _name = 'amount.words.mixin'
     _description = 'Amount in Words Mixin'
@@ -39,6 +44,9 @@ class AmountWordsMixin(models.AbstractModel):
 
     # --- compute ---------------------------------------------------------
     def _compute_amount_total_words(self):
+        self._amount_words_compute()
+
+    def _amount_words_compute(self):
         Currency = self.env['res.currency']
         for record in self:
             amount = record._amount_words_get_amount()

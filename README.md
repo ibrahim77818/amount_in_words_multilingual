@@ -1,10 +1,10 @@
-# Amount in Words – English & Arabic (Odoo 16.0)
+# Amount in Words – English & Arabic (Odoo 17.0)
 
 ![Amount in Words](amount_in_words_multilingual/static/description/banner.png)
 
 Odoo module **`amount_in_words_multilingual`** — shows the total of every quotation, sales order and customer invoice spelled out in the **customer's language**, on screen and on the PDF. Arabic follows real grammar: dual, plural and accusative counted-noun forms, gender agreement and «فقط … لا غير».
 
-> This branch: **Odoo 16.0** · Community & Enterprise · License LGPL-3
+> This branch: **Odoo 17.0** · Community & Enterprise · License LGPL-3
 
 | Odoo version | Branch |
 |---|---|
@@ -27,7 +27,7 @@ Example: `SAR 1,235.50` → *One Thousand Two Hundred and Thirty-Five Saudi Riya
 
 ## Installation
 
-1. Copy the `amount_in_words_multilingual` folder into your addons path (or add this repository, branch `16.0`, on Odoo.sh).
+1. Copy the `amount_in_words_multilingual` folder into your addons path (or add this repository, branch `17.0`, on Odoo.sh).
 2. Update the Apps list and install **Amount in Words (English & Arabic)**.
 3. Depends only on `sale` and `account`.
 
@@ -45,13 +45,22 @@ currency.amount_to_words_multilingual(1235.5, lang='ar_001', wrap=True)
 
 Fields: `amount_total_words`, `amount_total_words_lang`, `amount_total_words_rtl` on `sale.order` and `account.move` (abstract model `amount.words.mixin`).
 
+## Odoo 17 notes
+
+- Odoo 17 added its own `amount_total_words` field on invoices (printed by **Settings › Invoicing › Total amount of invoice in letters**). This module keeps that field name and replaces its computation, so Odoo's own line also prints the customer-language text. When both are enabled, the words are printed **once** (the module's band; Odoo's line is hidden).
+- On the invoice PDF the band is placed after `div#right-elements` (full width), because in v17 the totals sit in a narrow right-hand column.
+
 ## Tests
 
-33 `TransactionCase` tests (engine grammar, rounding, currencies, discounts, taxes, cash rounding, credit notes, live form updates, rendered reports, Arabic label):
+35 `TransactionCase` tests (engine grammar, rounding, currencies, discounts, taxes, cash rounding, credit notes, live form updates, rendered reports, Arabic label):
 
 ```bash
 odoo-bin -d <db> -i amount_in_words_multilingual --test-enable --test-tags /amount_in_words_multilingual --stop-after-init
 ```
+
+## Known limitations
+
+- **`l10n_gcc_invoice`** (GCC bilingual invoice layout) prints `amount_total_words` under an English label. With this module that line follows the customer's language, so an Arabic customer sees Arabic text there. Not yet adapted.
 
 ## Author & support
 
