@@ -6,7 +6,7 @@ class AccountMove(models.Model):
     _name = 'account.move'
     _inherit = ['account.move', 'amount.words.mixin']
 
-    # Odoo 17 ships its own ``amount_total_words`` on account.move (printed by
+    # Since Odoo 17, Odoo ships its own ``amount_total_words`` on account.move (printed by
     # the "Total amount of invoice in letters" setting and by l10n_gcc_invoice).
     # We keep the same field name and replace its computation, so every place
     # that prints it gets the multilingual, grammatically correct text.
@@ -39,9 +39,10 @@ class AccountMove(models.Model):
             return None
         # ``tax_totals`` is what the totals widget and the PDF display: it is
         # recomputed live from the invoice lines in the form (before journal
-        # items are synchronised). In Odoo 17 its ``amount_total`` already
-        # includes the cash-rounding difference (both strategies).
+        # items are synchronised) and includes the cash-rounding difference.
+        # Odoo 18 renamed its keys: the document-currency grand total is
+        # ``total_amount_currency`` (it was ``amount_total`` up to v17).
         totals = self.tax_totals
-        if totals and totals.get('amount_total') is not None:
-            return totals['amount_total']
+        if totals and totals.get('total_amount_currency') is not None:
+            return totals['total_amount_currency']
         return self.amount_total

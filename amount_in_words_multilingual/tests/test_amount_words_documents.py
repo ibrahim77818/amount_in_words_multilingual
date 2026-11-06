@@ -11,8 +11,10 @@ from odoo.addons.account.tests.common import AccountTestInvoicingCommon
 class TestAmountWordsDocuments(AccountTestInvoicingCommon):
 
     @classmethod
-    def setUpClass(cls, chart_template_ref=None):
-        super().setUpClass(chart_template_ref=chart_template_ref)
+    def setUpClass(cls):
+        # Odoo 18: AccountTestInvoicingCommon.setUpClass() takes no
+        # chart_template_ref any more (use @setup_chart_template instead).
+        super().setUpClass()
         cls.env['res.lang']._activate_lang('ar_001')
         cls.company = cls.company_data['company']
         cls.company.write({
@@ -37,7 +39,7 @@ class TestAmountWordsDocuments(AccountTestInvoicingCommon):
         })
         cls.tax_15_incl = cls.env['account.tax'].create({
             'name': 'VAT 15% incl. (words test)', 'amount': 15.0, 'amount_type': 'percent',
-            'type_tax_use': 'sale', 'price_include': True, 'company_id': cls.company.id,
+            'type_tax_use': 'sale', 'price_include_override': 'tax_included', 'company_id': cls.company.id,
         })
         cls.product = cls.env['product.product'].create({
             'name': 'Consulting Hour', 'lst_price': 1000.0, 'type': 'service',
@@ -133,7 +135,7 @@ class TestAmountWordsDocuments(AccountTestInvoicingCommon):
         self.assertEqual(so.amount_total_words, 'فقط ريال سعودي واحد وثمانون هللة لا غير')
 
     def test_so_form_onchange_updates_words_live(self):
-        self.env.user.groups_id += self.env.ref('product.group_discount_per_so_line') \
+        self.env.user.groups_id += self.env.ref('sale.group_discount_per_so_line') \
             + self.env.ref('product.group_product_pricelist')
         with Form(self.env['sale.order']) as so_form:
             so_form.partner_id = self.partner_ar
@@ -283,7 +285,7 @@ class TestAmountWordsDocuments(AccountTestInvoicingCommon):
         self.assertNotIn('Total (In Words):', html)
 
     # ------------------------------------------------------------------
-    # Odoo 17: standard "Total amount of invoice in letters" setting
+    # Odoo 17+: standard "Total amount of invoice in letters" setting
     # ------------------------------------------------------------------
     def test_core_v17_field_uses_multilingual_engine(self):
         inv = self._create_invoice(self.partner_ar, [{'price': 1000.0}])

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Amount in Words (English & Arabic)',
-    'version': '17.0.1.0.0',
+    'version': '18.0.1.0.0',
     'category': 'Accounting/Accounting',
     'summary': 'Total in words on Sales Orders and Customer Invoices, in the '
                'customer\'s language, with grammatically correct Arabic',

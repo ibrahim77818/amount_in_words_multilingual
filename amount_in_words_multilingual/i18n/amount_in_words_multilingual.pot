@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-06 10:14+0000\n"
-"PO-Revision-Date: 2026-11-06 10:14+0000\n"
+"POT-Creation-Date: 2026-11-06 12:08+0000\n"
+"PO-Revision-Date: 2026-11-06 12:08+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -53,7 +53,6 @@ msgstr ""
 #. module: amount_in_words_multilingual
 #: model:ir.model.fields,field_description:amount_in_words_multilingual.field_account_bank_statement_line__amount_total_words_lang
 #: model:ir.model.fields,field_description:amount_in_words_multilingual.field_account_move__amount_total_words_lang
-#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_account_payment__amount_total_words_lang
 #: model:ir.model.fields,field_description:amount_in_words_multilingual.field_amount_words_mixin__amount_total_words_lang
 #: model:ir.model.fields,field_description:amount_in_words_multilingual.field_res_company__amount_words_lang_mode
 #: model:ir.model.fields,field_description:amount_in_words_multilingual.field_res_config_settings__amount_words_lang_mode
@@ -69,7 +68,6 @@ msgstr ""
 #. module: amount_in_words_multilingual
 #: model:ir.model.fields,field_description:amount_in_words_multilingual.field_account_bank_statement_line__amount_total_words_rtl
 #: model:ir.model.fields,field_description:amount_in_words_multilingual.field_account_move__amount_total_words_rtl
-#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_account_payment__amount_total_words_rtl
 #: model:ir.model.fields,field_description:amount_in_words_multilingual.field_amount_words_mixin__amount_total_words_rtl
 #: model:ir.model.fields,field_description:amount_in_words_multilingual.field_sale_order__amount_total_words_rtl
 msgid "Amount in Words is RTL"
@@ -158,7 +156,6 @@ msgstr ""
 #. module: amount_in_words_multilingual
 #: model:ir.model.fields,help:amount_in_words_multilingual.field_account_bank_statement_line__amount_total_words
 #: model:ir.model.fields,help:amount_in_words_multilingual.field_account_move__amount_total_words
-#: model:ir.model.fields,help:amount_in_words_multilingual.field_account_payment__amount_total_words
 #: model:ir.model.fields,help:amount_in_words_multilingual.field_amount_words_mixin__amount_total_words
 #: model:ir.model.fields,help:amount_in_words_multilingual.field_sale_order__amount_total_words
 msgid "Document total spelled out in the customer's language."
@@ -263,7 +260,6 @@ msgstr ""
 #. module: amount_in_words_multilingual
 #: model:ir.model.fields,field_description:amount_in_words_multilingual.field_account_bank_statement_line__amount_total_words
 #: model:ir.model.fields,field_description:amount_in_words_multilingual.field_account_move__amount_total_words
-#: model:ir.model.fields,field_description:amount_in_words_multilingual.field_account_payment__amount_total_words
 #: model:ir.model.fields,field_description:amount_in_words_multilingual.field_amount_words_mixin__amount_total_words
 #: model:ir.model.fields,field_description:amount_in_words_multilingual.field_sale_order__amount_total_words
 msgid "Total (In Words)"

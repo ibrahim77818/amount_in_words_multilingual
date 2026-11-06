@@ -25,12 +25,12 @@
 
     <!-- Customer Invoice / Credit Note / Sales Receipt -->
     <template id="report_invoice_document_amount_words" inherit_id="account.report_invoice_document">
-        <!-- Odoo 17's own "Total amount of invoice in letters" line prints the
+        <!-- Odoo's own (since v17) "Total amount of invoice in letters" line prints the
              same field: hide it when our block is printed, to avoid duplicates. -->
         <xpath expr="//p[@t-if='o.company_id.display_invoice_amount_total_words']" position="attributes">
             <attribute name="t-if">o.company_id.display_invoice_amount_total_words and not (o.company_id.amount_words_on_invoice_report and o.amount_total_words and o.is_sale_document(include_receipts=True))</attribute>
         </xpath>
-        <!-- In Odoo 17 div#total sits inside the narrow #right-elements column,
+        <!-- Since Odoo 17 div#total sits inside the narrow #right-elements column,
              so the band goes after that column, full width, below both sides. -->
         <xpath expr="//div[@id='right-elements']" position="after">
             <t t-if="o.company_id.amount_words_on_invoice_report and o.amount_total_words and o.is_sale_document(include_receipts=True)">
