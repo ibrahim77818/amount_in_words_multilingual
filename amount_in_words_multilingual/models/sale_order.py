@@ -10,8 +10,9 @@ class SaleOrder(models.Model):
         # totals (themselves recomputed from the lines)
         'amount_untaxed', 'amount_tax', 'amount_total',
         # line-level pricing: quantity, unit price, discount, taxes
+        # (Odoo 19 renamed sale.order.line.tax_id to tax_ids)
         'order_line.product_uom_qty', 'order_line.price_unit', 'order_line.discount',
-        'order_line.tax_id', 'order_line.price_subtotal', 'order_line.price_tax',
+        'order_line.tax_ids', 'order_line.price_subtotal', 'order_line.price_tax',
         'order_line.price_total',
         # global discount lines / currency / language
         'order_line.display_type',

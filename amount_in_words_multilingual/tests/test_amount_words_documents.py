@@ -15,6 +15,8 @@ class TestAmountWordsDocuments(AccountTestInvoicingCommon):
         # Odoo 18: AccountTestInvoicingCommon.setUpClass() takes no
         # chart_template_ref any more (use @setup_chart_template instead).
         super().setUpClass()
+        # Odoo 19: the invoicing test user is no longer a salesman by default.
+        cls.env.user.group_ids += cls.env.ref('sales_team.group_sale_salesman')
         cls.env['res.lang']._activate_lang('ar_001')
         cls.company = cls.company_data['company']
         cls.company.write({
@@ -65,7 +67,7 @@ class TestAmountWordsDocuments(AccountTestInvoicingCommon):
                 'product_uom_qty': vals.get('qty', 1.0),
                 'price_unit': vals['price'],
                 'discount': vals.get('discount', 0.0),
-                'tax_id': [Command.set(vals.get('taxes', self.tax_15).ids)],
+                'tax_ids': [Command.set(vals.get('taxes', self.tax_15).ids)],
             }) for vals in lines],
         })
 
@@ -127,7 +129,7 @@ class TestAmountWordsDocuments(AccountTestInvoicingCommon):
         self.assertEqual(so.amount_total_words, 'One Thousand and Thirty-Five Saudi Riyals Only')
         line.product_uom_qty = 2                # 1800 + 270
         self.assertEqual(so.amount_total_words, 'Two Thousand and Seventy Saudi Riyals Only')
-        line.tax_id = [Command.clear()]         # 1800
+        line.tax_ids = [Command.clear()]         # 1800
         self.assertEqual(so.amount_total_words, 'One Thousand Eight Hundred Saudi Riyals Only')
         line.price_unit = 1                     # 2 x 1 x 90% = 1.80
         self.assertEqual(so.amount_total_words, 'One Saudi Riyal and Eighty Halalas Only')
@@ -135,7 +137,7 @@ class TestAmountWordsDocuments(AccountTestInvoicingCommon):
         self.assertEqual(so.amount_total_words, 'فقط ريال سعودي واحد وثمانون هللة لا غير')
 
     def test_so_form_onchange_updates_words_live(self):
-        self.env.user.groups_id += self.env.ref('sale.group_discount_per_so_line') \
+        self.env.user.group_ids += self.env.ref('sale.group_discount_per_so_line') \
             + self.env.ref('product.group_product_pricelist')
         with Form(self.env['sale.order']) as so_form:
             so_form.partner_id = self.partner_ar
@@ -143,8 +145,8 @@ class TestAmountWordsDocuments(AccountTestInvoicingCommon):
             with so_form.order_line.new() as line:
                 line.product_id = self.product
                 line.price_unit = 100.0
-                line.tax_id.clear()
-                line.tax_id.add(self.tax_15)
+                line.tax_ids.clear()
+                line.tax_ids.add(self.tax_15)
             self.assertEqual(so_form.amount_total_words, 'فقط مائة وخمسة عشر ريالاً سعودياً لا غير')
             with so_form.order_line.edit(0) as line:
                 line.discount = 50.0
